@@ -21,7 +21,15 @@ function Gallery({ tours, onRemoveTour }) { // function for gallery
         fetchTours(); // calls function
       }, []);
     
+      if (loading) { // if it is loading
+        return <div>Loading...</div>; // Display loading message
+      }
     
+      if (error) {  // if there is an error
+        return <div>Error: {error}</div>; // Display error message
+      }
+
+      
       return ( // return tour cards
         <div>
           {tourData.map(tour => ( // map tour data
