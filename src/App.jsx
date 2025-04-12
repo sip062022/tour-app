@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';  // import usestate from react
+import Gallery from './components/Gallery'; // imports Gallery
 
-function App() {
-  const [count, setCount] = useState(0)
+const App () => {  // sets up arrow function for the app
+  const [tours, setTours] = useState([]); // state to hold list
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+const removeTour = (id) => { // sets up arrow function for removing tour
+  setTours((prev) => prev.filter((tour) => tour.id !== id)); // removes tour by id
+};
+
+return (
+  <main>
+    <h1>Tours</h1>
+    {/* Pass down state and handler to Gallery*/}
+    <Gallery tours={tours} setTours={setTours} onRemoveTour={removeTour} />
+    </main>
+  );
+};
+
+export default App;
