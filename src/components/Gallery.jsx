@@ -23,13 +23,18 @@ const Gallery = ({ tours, setTours, onRemoveTour }) => {  // create arrow functi
         fetchTours();
       }, []);
     
+      if (loading) return <p>Loading tours...</p>;  // if loading, display message
+
+      if (error) return <p>Something went wrong. Please try again later.</p>; // if error, display message
+    
+      return (
         <section className="gallery">  {/* set className as gallery*/}
 
           {tours.map((tour) => ( {/* for each tour*/}
             <TourCard key={tour.id} {...tour} onRemove={onRemoveTour} /> {/* removing tour*/}
           ))}
         </section>
-
-    };
+    );
+};
     
 export default Gallery; // export gallery
