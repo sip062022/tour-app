@@ -8,12 +8,15 @@ const Gallery = ({ tours, setTours, onRemoveTour }) => {  // create arrow functi
     const fetchTours = async () => {  // arrow function to fetch tours
         setLoading(true); // Start loading
         try {
-          const res = await fetch('https://course-api.com/react-tours-project');  // fetch the url
-          const data = await res.json();
+          const response = await fetch('https://course-api.com/react-tours-project');  // fetch the url
+          if (!response.ok) {   // see if response is ok
+            throw new Error("Failed to fetch tours");  // if error, log this message
+          }
+          const data = await response.json();
           setTours(data); // Save data to parent state
           setError(false); // Reset error state
-        } catch (err) {
-          console.error('Error fetching tours:', err);
+        } catch (error) {
+          console.error('Error fetching tours:', error);
           setError(true); // Set error state
         }
         setLoading(false); // Done loading
@@ -30,9 +33,16 @@ const Gallery = ({ tours, setTours, onRemoveTour }) => {  // create arrow functi
       return (
         <section className="gallery">  {/* set className as gallery*/}
 
-          {tours.map((tour) => ( {/* for each tour*/}
-            <TourCard key={tour.id} {...tour} onRemove={onRemoveTour} /> {/* removing tour*/}
-          ))}
+    {tours.map((tour) => {
+        // for each tour
+        return (
+            <TourCard 
+            key={tour.id}
+            {...tour}
+            onRemove={onRemoveTour} // removing tour
+            />
+            );
+        })}
         </section>
     );
 };
