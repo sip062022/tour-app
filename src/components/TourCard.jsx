@@ -4,7 +4,7 @@ const TourCard = ({ id, name, info, image, price, onRemove }) => {  // arrow fun
   const [readMore, setReadMore] = useState(false); // set usestate to false
 
   return (
-    <article className="tour-card"> // classname is tour-card
+    <article className="tour-card"> {/* classname is tour-card */}
       <img src={image} alt={name} /> {/* Tour image */}
 
       <div className="tour-info"> {/* class name is tour-info */}

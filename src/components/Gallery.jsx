@@ -8,7 +8,7 @@ const Gallery = ({ tours, setTours, onRemoveTour }) => {  // create arrow functi
     const fetchTours = async () => {  // arrow function to fetch tours
         setLoading(true); // Start loading
         try {
-          const response = await fetch('https://course-api.com/react-tours-project');  // fetch the url
+          const response = await fetch("https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project");  // fetch the url
           if (!response.ok) {   // see if response is ok
             throw new Error("Failed to fetch tours");  // if error, log this message
           }
