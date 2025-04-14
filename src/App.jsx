@@ -1,5 +1,6 @@
 import React, { useState } from 'react';  // import usestate from react
 import Gallery from './components/Gallery'; // imports Gallery
+import './styles/styles.css'; // importing styling
 
 const App = () => {  // sets up arrow function for the app
   const [tours, setTours] = useState([]); // state to hold list
@@ -19,3 +20,4 @@ return (
 };
 
 export default App;
+

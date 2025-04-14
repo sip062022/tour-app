@@ -1,0 +1,121 @@
+/* styles.css */
+
+/* base style */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  /* App title */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  /* Gallery layout */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 2rem;
+    justify-items: center;
+  } 
+  
+  /* Tour Card Styles */
+  .tour-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .tour-card:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Image Styling */
+  .tour-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Tour info container */
+  .tour-info {
+    padding: 1.5rem;
+  }
+  
+  /* Header section: name + price */
+  .tour-info header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .tour-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .tour-price {
+    background-color: #006400;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  /* Paragraph text + Read More toggle */
+  .tour-info p {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .tour-info button {
+    background: none;
+    border: none;
+    color: #006400;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+  
+  /* Remove button */
+  .btn-remove {
+    background-color: #90EE90;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-remove:hover {
+    background-color: #90EE90;
+  }
+  
+  /* Responsive for tablets & phones */
+  @media (max-width: 768px) {
+    .tour-card {
+      width: 95%;
+    }
+  
+    .tour-info h2 {
+      font-size: 1.25rem;
+    }
+  
+    .tour-info p {
+      font-size: 0.9rem;
+    }
+  }
